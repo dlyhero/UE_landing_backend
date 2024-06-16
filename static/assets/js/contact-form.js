@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const remaining = 150 - messageField.value.length;
     charCounter.textContent = `${remaining} characters left`;
   });
-  emailjs.init("mb1P6JX16V1oBmApv");
+  emailjs.init("mblP6JX16V1oBmApv");
 
   document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -20,14 +20,17 @@ document.addEventListener('DOMContentLoaded', function() {
       message: document.getElementById("message").value
     };
 
-    emailjs.send("service_6w3kp0j", "template_5iouf44", params)
-    .then(function() {
-      document.getElementById("thank-you").style.display = "block";
-      document.getElementById("contact-form").reset();
-      document.getElementById("char-counter").textContent = "150 characters left";
-    }, function(error) {
-      document.getElementById("try-again").style.display = "block";
-    });
+    emailjs.send("service_iil7tk8", "template_q47pb6b", params).then(
+      function () {
+        document.getElementById("thank-you").style.display = "block";
+        document.getElementById("contact-form").reset();
+        document.getElementById("char-counter").textContent =
+          "150 characters left";
+      },
+      function (error) {
+        document.getElementById("try-again").style.display = "block";
+      }
+    );
   });
 });
 
