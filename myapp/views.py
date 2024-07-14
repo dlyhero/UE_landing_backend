@@ -13,7 +13,7 @@ from django.http import HttpResponse
 from .models import BlogPost
 
 def blog_post_list(request):
-    blog_posts = BlogPost.objects.all()
+    blog_posts = BlogPost.objects.all().first()
     blog_posts_with_delay = [(post, index * 100) for index, post in enumerate(blog_posts)]
     context = {'blog_posts': blog_posts_with_delay}
     return render(request, 'index.html', context)
