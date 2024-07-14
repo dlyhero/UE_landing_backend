@@ -17,7 +17,8 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="card mt-5">
-                            <img src="{{ blog_post.image }}" class="card-img-top" alt="Blog Post Image">
+                            <img src="{{ blog_post.image.url }}" class="card-img-top" alt="Random Image" 
+     style="height: 350px; width: 100%; object-fit: cover;">
                             <div class="card-body">
                                 <h3 class="card-title">{{ blog_post.title }}</h3>
                                 <p class="card-text">

@@ -7,7 +7,7 @@ class BlogPost(models.Model):
     content = models.TextField()
     publication_date = models.DateTimeField(auto_now_add=True)
     likes = models.PositiveIntegerField(default=0)
-    image = models.URLField(default='https://picsum.photos/{}/{}'.format(random.randint(0, 99), random.randint(0, 99)))
+    image = models.ImageField(upload_to='images/', default='images/default.jpg')
 
 
 class Comment(models.Model):

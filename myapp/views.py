@@ -13,12 +13,8 @@ from django.http import HttpResponse
 from .models import BlogPost
 
 def blog_post_list(request):
-    blog_posts = BlogPost.objects.all().first()  # Retrieve all blog posts from the database
-    blog_posts_with_delay = []
-    
-    if blog_posts:
-        blog_posts_with_delay = [(post, index * 100) for index, post in enumerate(blog_posts)]
-    
+    blog_posts = BlogPost.objects.all().order_by('-publication_date')  # Retrieve all blog posts and order them by publication date
+    blog_posts_with_delay = [(post, index * 100) for index, post in enumerate(blog_posts)]
     return render(request, 'index.html', {'blog_posts': blog_posts_with_delay})
 
 
